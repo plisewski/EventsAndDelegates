@@ -22,7 +22,13 @@ namespace EventsAndDelegates
             {
                 // as _name change occurs here, this the place where the event is invoked
 
-                if (!String.IsNullOrEmpty(value))
+                //if (!String.IsNullOrEmpty(value))
+
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty");
+                }
+
                 {
                     if (_name != value && NameChanged != null)
                     {
